@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            node js
+        </title>
+    </head>
+    <body>
+        <form>
+            <button id="fetchBtn">click me</button>
+        </form>
+    </body>
+    <script>
+        var fetchBtn=document.getElementById("fetchBtn");
+        fetchBtn.addEventListener("click",function(e){
+            e.preventDefault();
+            var url="http://localhost:8081/hit";
+            fetch(url,{
+                method:"GET"
+            })
+            .then((Response)=>{
+               return Response.json(); 
+            })
+            .then((data)=>{
+                console.log(data);
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
+         
+        })
+    </script>
+</html>
